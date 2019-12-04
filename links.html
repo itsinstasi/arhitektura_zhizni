@@ -410,6 +410,8 @@ color: #C6BB73;
 
 					<div class="links-page-list">
 
+
+
 						<div class="links-page-blc--opacity">
 							<div class="links-page-blc__txt">
 								<p>Архитектура Жизни - это искусство и наука проектировать и строить свою жизнь, включая ее комплексы - это тело, душа и дух (целостность, связанность, единство) гармоническое единство, а также сама совокупность жизни, создающая пространственную среду для жизни и деятельности человека.<br/><br/>
@@ -422,6 +424,8 @@ color: #C6BB73;
 Саморазвитие характерно добровольностью и самоконтролем, когда человек изучает новую информацию и применяет её на практике безо всякого принуждения извне.</p>
 							</div>
 						</div>
+
+
 
 
 
@@ -472,6 +476,8 @@ color: #C6BB73;
 
 
 
+
+
 						<a href="http://samrazv.ru/" class="links-page-btn-pic" style="
 background: #243154;--elems-hover: #243154;
 color: #C6BB73;--btn-txt-color: #C6BB73;
@@ -484,6 +490,8 @@ color: #C6BB73;--btn-txt-color: #C6BB73;
 								</div>
 							</img>
 						</a>
+
+
 
 
 
@@ -502,6 +510,8 @@ color: #C6BB73;
 
 
 
+
+
 						<a href="http://samrazv.ru/marafon-probuzhdenie-schastja/" class="links-page-btn " style="
 background: #243154;
 color: #C6BB73;
@@ -514,6 +524,8 @@ color: #C6BB73;
 							</strong>
 							<small>марафон 8 дней</small>
 						</a>
+
+
 
 
 
@@ -531,6 +543,8 @@ color: #C6BB73;
 
 
 
+
+
 						<a href="https://kluchichastiy.justclick.ru/" class="links-page-btn shake " style="
 background: #243154;
 color: #C6BB73;
@@ -543,6 +557,8 @@ color: #C6BB73;
 							</strong>
 							<small>полный пакет</small>
 						</a>
+
+
 
 
 
@@ -587,5 +603,44 @@ color: #243154
 	<script src="js/jquery.init.js"></script>
 	<!--my scripts-->
 	<script src="js/jquery.main.js"></script>
+
+    <script type="text/javascript">
+function getFormData($form){
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+}
+
+$(document).ready(function(){
+    $('form').submit(function(){
+	event.preventDefault(); //prevent default action 
+
+	var contact = $(this).find('input[name="contact"]').val();
+	if (!contact) return false;
+
+	var post_url = $(this).attr("action"); //get form action url
+	var request_method = $(this).attr("method"); //get form GET/POST method
+	var form_data = JSON.stringify(getFormData($(this)));
+
+	var form = $(this);
+	$.ajax({
+		url : post_url,
+		type: request_method,
+                contentType: 'application/json',
+		data : form_data
+	}).done(function(response){
+	}).fail(function(){
+	});
+
+        return false;
+    });
+});
+    </script>
+
 </body>
 </html>
