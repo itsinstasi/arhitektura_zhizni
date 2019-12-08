@@ -412,7 +412,9 @@ color: #C6BB73;
 
 
 
-						<div class="links-page-blc--opacity">
+						<div class="links-page-blc--opacity" style="
+background: #243154;
+">
 							<div class="links-page-blc__txt">
 								<p>Архитектура Жизни - это искусство и наука проектировать и строить свою жизнь, включая ее комплексы - это тело, душа и дух (целостность, связанность, единство) гармоническое единство, а также сама совокупность жизни, создающая пространственную среду для жизни и деятельности человека.<br/><br/>
 Архитектура Жизни - создает материально организованную среду, необходимую людям для их жизни и деятельности, в соответствии с их устремлениями, а так же современными техническими возможностями.<br/><br/>
@@ -634,6 +636,17 @@ $(document).ready(function(){
                 contentType: 'application/json',
 		data : form_data
 	}).done(function(response){
+	    var email = response.email;
+		if (email) {
+	        $("#leadSent").text("Ваш запрос отправлен на " + email);
+		} else {
+	        $("#leadSent").text("Ваш запрос отправлен");
+		}
+
+		var input = form.find('input');
+		input.attr('readonly', true);
+        input.attr("disabled", true);
+		form.find('button').attr("disabled", true);
 	}).fail(function(){
 	});
 
