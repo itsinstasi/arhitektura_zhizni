@@ -83,7 +83,7 @@
 						<div class="header__title">Архитектура Жизни|Юлия Светлая</div>
 					</div>
 					<div id="settingsContainer" class="header__right" style="display:none">
-						<button onclick="window.open('http://itsinsta.site/page.html?project=arhitektura_zhizni');" class="btn stories-popup__buy">Настроить</button>
+						<button onclick="window.open('http://itsinsta.site/page.html?project=arhitektura_zhizni', '_self');" class="btn stories-popup__buy">Настроить</button>
 					</div>
 				</div>
 			</div>
@@ -118,11 +118,11 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
-								<div class="stories__slide" title="ПОСТАНОВКА ЦЕЛЕЙ">
-									<a href="./tags/./postanovka-tseley.html">
-										<div class="stories__slide-pic" style="background-image: url(./img/og/POSTANOVKA-TsELEY.png);"></div>
+								<div class="stories__slide" title="ЦЕЛИ. Постановка и воплощение.">
+									<a href="./tags/./tseli-dot-postanovka-i-voploshchenie-dot.html">
+										<div class="stories__slide-pic" style="background-image: url(./img/og/TsELI-dot-Postanovka-i-voploshchenie-dot.png);"></div>
 										<div class="stories__slide-txt" style="		color: #243154;
-">ПОСТАНОВКА ЦЕЛЕЙ</div>
+">ЦЕЛИ. Постановка и воплощение.</div>
 									</a>
 								</div>
 							</div>
@@ -405,7 +405,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 $(document).ready(function(){
 	var lid = getUrlParameter("lid");
-	if (lid) {
+	if (lid && lid != "true") {
         localStorage.setItem("hasToken", true);
 
 		$("#settingsContainer").show();
